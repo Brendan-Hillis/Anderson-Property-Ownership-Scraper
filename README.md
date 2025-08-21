@@ -1,7 +1,7 @@
 # Anderson-Property-Ownership-Scraper
 
 This Python script is designed to monitor property ownership and address changes for specified streets in Anderson County, SC, by scraping data from the official county public access website. It fetches current property information, compares it against a previously saved dataset, and reports any detected changes (new properties, removed properties, or changes in owner/address).
-gi
+
 ## **🌟 Features**
 
 * **Automated Data Fetching**: Retrieves property data for a list of predefined streets.  
