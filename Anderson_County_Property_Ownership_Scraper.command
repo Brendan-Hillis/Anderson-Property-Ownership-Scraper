@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # --- Configuration ---
-PROJECT_DIR="$HOME/gitRepos/PropertyScraper" # Directory where the project will be stored
+PROJECT_DIR="$HOME/gitRepos/" # Directory where the project will be stored
 REPO_URL="https://github.com/Brendan-Hillis/Anderson-Property-Ownership-Scraper.git" # IMPORTANT: Replace with your GitHub repo URL
 VENV_NAME="venv" # Name of your virtual environment
 MAIN_SCRIPT="main.py" # Name of your main Python script
 
-# --- Script Execution ---
+# --- Script Execution ---chmod +x run_scraper.command
 
 echo "Starting Property Ownership Scraper setup and run..."
 echo "----------------------------------------------------"
