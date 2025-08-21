@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# IDEs
+.idea/  # PyCharm
+.vscode/ # VS Code
+
+# Generated data
+property_owners.json
