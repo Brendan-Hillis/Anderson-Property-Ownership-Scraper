@@ -61,6 +61,9 @@ def main():
     """Main function to run the property scraper and comparison."""
     print("\n--- Anderson County Property Ownership Monitor ---")
 
+    # Determine the data file path: prioritize environment variable, then config file
+    data_file_path = os.environ.get('SCRAPER_DATA_FILE_PATH', config.DATA_FILE_PATH)
+    
     current_properties = {}
     for street in config.STREETS_TO_CHECK:
         html = fetch_property_data(config.BASE_URL, street)
@@ -90,12 +93,12 @@ def main():
     print(f"\nFinished fetching. Found data for {len(current_properties)} properties.")
 
     # Check if a local data file exists
-    if not os.path.exists(config.DATA_FILE_PATH):
-        print("\nFirst run detected. No local data file found.")
-        save_data(current_properties, config.DATA_FILE_PATH)
+    if not os.path.exists(data_file_path):
+        print("\nFirst run detected or data file moved. No local data file found at persistent path.")
+        save_data(current_properties, data_file_path)
     else:
-        print(f"\nFound existing data file. Comparing for changes...")
-        previous_properties = load_data(config.DATA_FILE_PATH)
+        print(f"\nFound existing data file at '{data_file_path}'. Comparing for changes...")
+        previous_properties = load_data(data_file_path)
         
         # Ensure previous_properties is also structured correctly for comparison
         # (i.e., keyed by parcel number with nested dicts for owner/address)
@@ -116,7 +119,7 @@ def main():
             try:
                 confirm = input("Do you want to overwrite the data file with this new data? (y/n): ").lower()
                 if confirm == 'y':
-                    save_data(current_properties, config.DATA_FILE_PATH)
+                    save_data(current_properties, data_file_path)
                 else:
                     print("\nUpdate cancelled. The data file was not changed.")
             except KeyboardInterrupt:
