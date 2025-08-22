@@ -7,13 +7,15 @@
 # The script will automatically format them for the URL.
 STREETS_TO_CHECK = [
     "Parkside Dr",
-    "Garden Park dr",
-    "turnberry Rd",
+    "Garden Park Dr",
+    "Turnberry Rd",
     "Tully Dr",
     "Winmar Dr",
     "Stone Cottage Dr",
     "Courtyard Dr",
-    "Grove Park Dr"
+    "Grove Park Dr",
+    "Peppermill CT",
+    "Casselberry CT"
     # Add more street names here
 ]
 
